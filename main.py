@@ -1,5 +1,6 @@
 import email
 import re
+import time
 import dns.resolver
 import requests
 from email import policy
@@ -40,18 +41,28 @@ def check_dmarc(domain):
         return f"DMARC Check Failed: {e}"
 
 def check_url_malicious(url):
-    """Checks if a URL is malicious using VirusTotal API."""
+    """Submits a URL to VirusTotal and retrieves the scan result."""
     headers = {"x-apikey": VT_API_KEY}
     data = {"url": url}
+
+    # Submit URL for scanning
     response = requests.post(VT_URL, headers=headers, data=data)
+    
     if response.status_code == 200:
         result = response.json()
         analysis_id = result.get("data", {}).get("id")
-        report_url = f"https://www.virustotal.com/api/v3/analyses/{analysis_id}"
-        report_response = requests.get(report_url, headers=headers)
-        if report_response.status_code == 200:
-            return report_response.json().get("data", {}).get("attributes", {}).get("stats", {})
+
+        if analysis_id:
+            time.sleep(15)  # Wait for VirusTotal to process the URL
+            report_url = f"https://www.virustotal.com/api/v3/analyses/{analysis_id}"
+            report_response = requests.get(report_url, headers=headers)
+            
+            if report_response.status_code == 200:
+                report_data = report_response.json()
+                return report_data.get("data", {}).get("attributes", {}).get("stats", {})
+    
     return "Error Checking URL"
+
 
 def extract_urls(email_body):
     """Extracts URLs from the email body."""
