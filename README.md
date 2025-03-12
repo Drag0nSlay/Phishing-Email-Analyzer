@@ -43,13 +43,5 @@ Phishing_Email_Analyzer/
 │── README.md
 ```
 
-## .gitignore (Add these to avoid exposing sensitive files)
-```
-vt_api_key.py
-__pycache__/
-*.log
-*.env
-```
-
 ## License
 MIT License
