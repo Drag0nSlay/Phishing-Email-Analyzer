@@ -4,7 +4,7 @@
 Swift Incident Response: Strategies for Effective Defense is a cybersecurity project developed under the **Experimental Project-Based Learning (EPBL) initiative by SmartBridge**. It focuses on detecting and analyzing phishing emails to enhance incident response capabilities.
 
 ## Project Description
-Phishing Email Analyzer is a Python-based tool that extracts and analyzes email headers, checks SPF/DKIM/DMARC records, and verifies URLs using VirusTotal to detect phishing attempts. A sample phishing email (`test_sample_message.eml`) is included for testing and better experience.
+Phishing Email Analyzer is a **CLI-Based Python tool** that extracts and analyzes email headers, checks SPF/DKIM/DMARC records, and verifies URLs using VirusTotal to detect phishing attempts. A sample phishing email (`test_sample_message.eml`) is included for testing and better experience.
 
 ## Features
 - Extract sender details from email headers
