@@ -1,3 +1,21 @@
+# Ignore API key files
 vt_api_key.py
+nessus_api_key.py
+
+# Ignore system files
+__pycache__/
+*.log
+*.db
+
+# Ignore virtual environments
+venv/
+.env/
+
+# Ignore scan results and reports
+*.json
+*.csv
+reports/
+scans/
+
 *.env
 *.pem
