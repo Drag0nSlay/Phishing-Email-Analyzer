@@ -14,7 +14,7 @@ Phishing Email Analyzer is a **CLI-Based Python tool** that extracts and analyze
 
 ## Installation
 ```bash
-pip install dnspython requests
+pip install dnspython requests email-validator
 ```
 
 ## Setup
