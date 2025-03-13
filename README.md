@@ -26,7 +26,7 @@ VT_API_KEY = "your_virustotal_api_key"
    - [Sample Email (.eml)](https://www.phpclasses.org/browse/file/14672.html)
 3. **Run the script:**
 ```bash
-python main.py
+python main2.py
 ```
 
 ## Usage
