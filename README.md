@@ -26,14 +26,14 @@ VT_API_KEY = "your_virustotal_api_key"
    - [Sample Email (.eml)](https://www.phpclasses.org/browse/file/14672.html)
 3. **Run the script:**
 ```bash
-python main2.py
+python main.py
 ```
 
 ## Usage
 - Enter the path to an `.eml` file when prompted.
 - The script will analyze the email and report potential phishing indicators.
   ### Screenshots
-  ![Phishing Email Analyser](images/Phishing_Email_Analyser.png)
+  ![Phishing Email Analyser](images/phishing_email.png)
   ![VirusTotal_Scan](images/VirusTotal.png)
 
 ## License
