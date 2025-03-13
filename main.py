@@ -50,7 +50,7 @@ def check_dmarc(domain):
         return f"DMARC Check Failed: {e}"
 
 def check_url_malicious(url):
-    """Submits a URL to VirusTotal and retrieves the scan result."""
+    """Submits a URL to Phishing Email-Analyser and retrieves the scan result."""
     headers = {"x-apikey": VT_API_KEY}
     data = {"url": url}
 
@@ -61,17 +61,17 @@ def check_url_malicious(url):
             analysis_id = result.get("data", {}).get("id")
 
             if analysis_id:
-                time.sleep(15)  # Wait for VirusTotal to process
+                time.sleep(15)
                 basic_report = get_vt_report(analysis_id)
                 detailed_report = get_vt_analysis_details(analysis_id)
                 return {"basic_report": basic_report, "detailed_report": detailed_report}
 
         return "Error Checking URL"
     except requests.RequestException as e:
-        return f"VirusTotal Request Failed: {e}"
+        return f"Phishing Email-Analyser Request Failed: {e}"
 
 def get_vt_report(analysis_id):
-    """Fetches the basic VirusTotal scan report."""
+    """Fetches the basic Phishing Email-Analyser scan report."""
     headers = {"x-apikey": VT_API_KEY}
     report_url = f"https://www.virustotal.com/api/v3/analyses/{analysis_id}"
 
@@ -82,7 +82,7 @@ def get_vt_report(analysis_id):
             stats = report_data.get("stats", {})
             scan_results = report_data.get("results", {})
 
-            formatted_results = "\n--- Basic VirusTotal Analysis ---\n"
+            formatted_results = "\n--- Basic Phishing Email-Analyser Analysis ---\n"
             formatted_results += f"✓ Harmless: {stats.get('harmless', 0)}\n"
             formatted_results += f"✗ Malicious: {stats.get('malicious', 0)}\n"
             formatted_results += f"! Suspicious: {stats.get('suspicious', 0)}\n"
@@ -94,9 +94,9 @@ def get_vt_report(analysis_id):
 
             return formatted_results
 
-        return "Error Retrieving Basic VirusTotal Report"
+        return "Error Retrieving Basic Phishing Email-Analyser Report"
     except requests.RequestException as e:
-        return f"Error Fetching Basic VirusTotal Report: {e}"
+        return f"Error Fetching Basic Phishing Email-Analyser Report: {e}"
 
 def get_vt_analysis_details(analysis_id):
     """Fetches detailed analysis results for a submitted URL."""
