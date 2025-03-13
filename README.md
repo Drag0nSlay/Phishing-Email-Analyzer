@@ -33,7 +33,7 @@ python main.py
 - Enter the path to an `.eml` file when prompted.
 - The script will analyze the email and report potential phishing indicators.
   ### Screenshots
-  ![Phishing Email Analyser](images/phishing_email.png)
+  ![Phishing Email Analyser](images/Phishing_Scan.png)
   ![VirusTotal_Scan](images/VirusTotal.png)
 
 ## License
